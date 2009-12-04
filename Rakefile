@@ -7,10 +7,9 @@ begin
     gem.name = "emogilefs"
     gem.summary = %Q{MogileFS client patch for async requests to backend (not read or write data)}
     gem.description = %Q{MogileFS client patch for async requests to backend (not read or write data)}
-    gem.email = "rudenkoco@gmail.com"
+    gem.email = "ceo@prepor.ru"
     gem.homepage = "http://github.com/prepor/emogilefs"
     gem.authors = ["Andrew Rudenko"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
