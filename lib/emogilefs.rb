@@ -42,8 +42,10 @@ module EMogileFS
       raise MogileFS::Backend::ConnectionLost unless data    
       if current_task && current_task.callback
         begin
-          parsed = client.send :parse_response, data 
+          parsed = client.send :parse_response, data
           current_task.callback.call parsed
+        rescue MogileFS::Backend::UnknownKeyError
+          current_task.callback.call :unknown_key
         rescue MogileFS::Backend::ChannelNotFoundError => e
           puts 'not found'
         end
@@ -93,13 +95,14 @@ class EMogileFS::Request
   end
 end
 
-class MogileFS::MogileFS
+class MogileFS::Client
   def async(method, *args, &block)
     Thread.current[:mogile_async] = true
     req = self.send method, *args
     req.callback(&block)
   end
 end
+
 class MogileFS::Backend
   alias do_request_without_async do_request
   
