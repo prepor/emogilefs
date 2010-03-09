@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{emogilefs}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew Rudenko"]
-  s.date = %q{2009-12-04}
+  s.date = %q{2010-03-05}
   s.description = %q{MogileFS client patch for async requests to backend (not read or write data)}
   s.email = %q{ceo@prepor.ru}
   s.extra_rdoc_files = [
@@ -23,12 +23,13 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "emogilefs.gemspec",
      "lib/emogilefs.rb"
   ]
   s.homepage = %q{http://github.com/prepor/emogilefs}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{MogileFS client patch for async requests to backend (not read or write data)}
 
   if s.respond_to? :specification_version then

@@ -7,7 +7,13 @@ module EMogileFS
       connection(request.client).new_task request
     end    
     def connection(client)
-      @@connections[client] ||= EM.attach client.send(:socket), EMogileFS, client
+      real_socket = client.send(:socket)
+      current_client = @@connections[client]
+      if current_client && current_client.socket == real_socket
+        current_client
+      else
+        @@connections[client] = EM.attach real_socket, EMogileFS, client
+      end
     end
   end
   
@@ -18,6 +24,10 @@ module EMogileFS
     @current_task = nil
     self.client = client
     super
+  end
+  
+  def socket
+    @io
   end
   
   def new_task(request)
