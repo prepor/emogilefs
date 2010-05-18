@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{emogilefs}
-  s.version = "0.1.1"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew Rudenko"]
-  s.date = %q{2010-03-05}
+  s.date = %q{2010-05-18}
   s.description = %q{MogileFS client patch for async requests to backend (not read or write data)}
   s.email = %q{ceo@prepor.ru}
   s.extra_rdoc_files = [

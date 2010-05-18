@@ -57,7 +57,7 @@ module EMogileFS
         rescue MogileFS::Backend::UnknownKeyError
           current_task.callback.call :unknown_key
         rescue MogileFS::Backend::ChannelNotFoundError => e
-          puts 'not found'
+          current_task.callback.call :channel_not_found
         end
       end
     ensure
